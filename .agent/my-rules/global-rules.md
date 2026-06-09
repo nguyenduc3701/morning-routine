@@ -20,6 +20,7 @@ Quy tắc này áp dụng cho toàn bộ quá trình phát triển mã nguồn, 
 - **Separation of Concerns**:
   - Tách biệt rõ ràng logic API/Cào dữ liệu (nằm trong `@/lib` hoặc `@/app/api`) khỏi UI Components.
   - Sử dụng Zustand store để quản lý global state thuần giao diện (như trạng thái trình phát nhạc, playlist UI) kết hợp với TanStack Query cho data-driven state.
+  - **Unique Component IDs**: Tất cả các HTML element tương tác và React component (đặc biệt là các thành phần giao diện chính như section, card, button, form) đều phải được gán thuộc tính `id` độc nhất (unique ID). Việc này giúp ích cho quá trình automation testing (e2e), accessibility (a11y) và các thao tác tracking/quản lý DOM dễ dàng hơn.
 
 ## 4. UI/UX, SEO, GEO, Responsive & Multi-language Optimization
 - **Full Multi-language Support (en, vi, jp, cn, kr)**: Luôn đảm bảo toàn bộ mã nguồn giao diện được tạo ra hỗ trợ đầy đủ 5 ngôn ngữ: Tiếng Anh (`en`), Tiếng Việt (`vi`), Tiếng Nhật (`jp`), Tiếng Trung (`cn`), và Tiếng Hàn (`kr`).

@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Morning Routine",
+    "greeting": "하루는 고요함 속에서 시작됩니다.",
+    "prepareData": "데이터 로드 준비",
+    "complete": "완료",
+    "categories": "카테고리",
+    "hydrate": "수분 보충",
+    "hydrateDesc": "레몬 워터 500ml",
+    "mindful": "마음챙김 호흡",
+    "mindfulDesc": "10분",
+    "sunlight": "햇빛 쬐기",
+    "audioTitle": "아침의 고독",
+    "audioDesc": "백그라운드 사운드 • 15:00",
+    "back": "뒤로",
+    "next": "다음",
+    "dailyInsight": "오늘의 통찰",
+    "quote": "\"아침 산들바람이 당신에게 비밀을 말해줄 것입니다. 다시 잠들지 마세요.\"",
+    "menuCategories": "카테고리",
+    "menuHome": "홈",
+    "menuSettings": "설정"
+  }
+}

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1F2A5F;
+  --color-secondary: #7B5C9C;
+  --color-dawn-rose: #DA8593;
+  --color-sunrise-gold: #FECD71;
+  --color-sky-blue: #8CD4E6;
+  
+  --color-background: #131317;
+  --color-on-surface: #e4e1e7;
+  --color-on-surface-variant: #c6c5d1;
+  --color-tertiary: #efbf65;
+  --color-primary-container: #1f2a5f;
+
+  /* Font mappings from Apple-inspired design */
+  --font-apple: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "PingFang SC", "PingFang TC", "Apple SD Gothic Neo", "Inter", "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", "Segoe UI", "Roboto", sans-serif;
+  --font-manrope: "Manrope", var(--font-apple);
+  --font-inter: "Inter", var(--font-apple);
+  --font-jetbrains: "JetBrains Mono", var(--font-apple);
+
+  /* Spacing */
+  --spacing-base: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 64px;
+  --spacing-container-margin: 20px;
+  --spacing-gutter: 16px;
+
+  /* Animations */
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 2s linear infinite;
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+body {
+  background: radial-gradient(circle at top right, var(--color-primary) 0%, var(--color-background) 100%);
+  min-height: max(884px, 100dvh);
+  color: var(--color-on-surface);
+  font-family: var(--font-apple);
+}
+
+.glass-card {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.progress-gradient {
+  background: linear-gradient(90deg, #dcb8ff 0%, #b9c3ff 100%);
+}

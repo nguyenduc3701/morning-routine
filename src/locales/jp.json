@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Morning Routine",
+    "greeting": "一日は静けさの中で始まる。",
+    "prepareData": "データロードの準備",
+    "complete": "完了",
+    "categories": "カテゴリー",
+    "hydrate": "水分補給",
+    "hydrateDesc": "500mlのレモン水",
+    "mindful": "マインドフル呼吸",
+    "mindfulDesc": "10分",
+    "sunlight": "日光",
+    "audioTitle": "朝の孤独",
+    "audioDesc": "環境音 • 15:00",
+    "back": "戻る",
+    "next": "次へ",
+    "dailyInsight": "今日の洞察",
+    "quote": "「朝のそよ風があなたに秘密を教えようとしている。二度寝しないで。」",
+    "menuCategories": "カテゴリー",
+    "menuHome": "ホーム",
+    "menuSettings": "設定"
+  }
+}

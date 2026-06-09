@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Morning Routine",
+    "greeting": "The day begins in silence.",
+    "prepareData": "Prepare Data Loading",
+    "complete": "Complete",
+    "categories": "Categories",
+    "hydrate": "Hydrate & Prime",
+    "hydrateDesc": "500ml water with lemon",
+    "mindful": "Mindful Breath",
+    "mindfulDesc": "10 MIN",
+    "sunlight": "Sunlight",
+    "audioTitle": "Morning Solitude",
+    "audioDesc": "Ambient Soundscape • 15:00",
+    "back": "Back",
+    "next": "Next",
+    "dailyInsight": "Daily Insight",
+    "quote": "\"The morning breeze has secrets to tell you. Don't go back to sleep.\"",
+    "menuCategories": "Categories",
+    "menuHome": "Home",
+    "menuSettings": "Settings"
+  }
+}

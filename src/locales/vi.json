@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Morning Routine",
+    "greeting": "Ngày mới bắt đầu trong tĩnh lặng.",
+    "prepareData": "Chuẩn bị tải dữ liệu",
+    "complete": "Hoàn tất",
+    "categories": "Danh mục",
+    "hydrate": "Cấp nước & Thanh lọc",
+    "hydrateDesc": "500ml nước chanh",
+    "mindful": "Hít thở chánh niệm",
+    "mindfulDesc": "10 PHÚT",
+    "sunlight": "Ánh nắng",
+    "audioTitle": "Sự tĩnh lặng buổi sáng",
+    "audioDesc": "Nhạc nền thư giãn • 15:00",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "dailyInsight": "Thông điệp trong ngày",
+    "quote": "\"Gió ban mai có những bí mật muốn nói với bạn. Đừng ngủ lại.\"",
+    "menuCategories": "Danh mục",
+    "menuHome": "Trang chủ",
+    "menuSettings": "Cài đặt"
+  }
+}

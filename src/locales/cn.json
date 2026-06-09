@@ -1,0 +1,23 @@
+{
+  "Dashboard": {
+    "title": "Morning Routine",
+    "greeting": "新的一天在寂静中开始。",
+    "prepareData": "准备数据加载",
+    "complete": "完成",
+    "categories": "分类",
+    "hydrate": "补充水分",
+    "hydrateDesc": "500毫升柠檬水",
+    "mindful": "正念呼吸",
+    "mindfulDesc": "10分钟",
+    "sunlight": "沐浴阳光",
+    "audioTitle": "清晨的独处",
+    "audioDesc": "环境音效 • 15:00",
+    "back": "返回",
+    "next": "下一个",
+    "dailyInsight": "每日洞察",
+    "quote": "“晨风有秘密要告诉你。不要再回去睡觉了。”",
+    "menuCategories": "分类",
+    "menuHome": "首页",
+    "menuSettings": "设置"
+  }
+}
