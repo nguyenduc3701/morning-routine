@@ -9,6 +9,11 @@ import '../globals.css'; // Make sure to use the global CSS
 export const metadata = {
   title: 'Morning Routine',
   description: 'The day begins in silence.',
+  appleWebApp: {
+    capable: true,
+    title: 'Morning Routine',
+    statusBarStyle: 'black-translucent',
+  },
 };
 
 export function generateStaticParams() {

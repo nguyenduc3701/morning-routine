@@ -1,17 +1,22 @@
+'use client';
+
 import React from 'react';
+import { usePathname, Link } from '@/i18n/routing';
 
 export function BottomNavBar() {
+  const pathname = usePathname();
+  
   return (
-    <nav className="fixed bottom-0 left-0 right-0 w-full z-[100] flex justify-around items-center px-4 py-4 backdrop-blur-2xl bg-[#131317]/80 border-t border-white/10 md:hidden">
-      <button className="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 active:scale-90 transition-all w-12 h-12 rounded-full">
-        <span className="material-symbols-outlined text-[28px]" data-icon="grid_view">grid_view</span>
-      </button>
-      <button className="flex flex-col items-center justify-center text-tertiary font-bold active:scale-95 transition-all w-14 h-14 rounded-full bg-white/5 border border-tertiary/20">
-        <span className="material-symbols-outlined text-[36px]" data-icon="home" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
-      </button>
-      <button className="flex flex-col items-center justify-center text-on-surface-variant hover:bg-white/5 active:scale-90 transition-all w-12 h-12 rounded-full">
-        <span className="material-symbols-outlined text-[28px]" data-icon="settings">settings</span>
-      </button>
+    <nav className="fixed bottom-0 left-0 right-0 w-full z-[100] flex justify-around items-center px-4 pt-2 pb-[calc(env(safe-area-inset-bottom)+8px)] backdrop-blur-2xl bg-[#131317]/80 border-t border-white/10 md:hidden">
+      <Link href="/categories" className={`flex flex-col items-center justify-center hover:bg-white/5 active:scale-90 transition-all w-12 h-12 rounded-full ${pathname === '/categories' ? 'text-tertiary' : 'text-on-surface-variant'}`}>
+        <span className="material-symbols-outlined text-[32px]" data-icon="grid_view" style={pathname === '/categories' ? { fontVariationSettings: "'FILL' 1" } : undefined}>grid_view</span>
+      </Link>
+      <Link href="/" className={`flex flex-col items-center justify-center font-bold active:scale-95 transition-all w-14 h-14 rounded-full ${pathname === '/' ? 'text-tertiary bg-white/5 border border-tertiary/20 shadow-[0_0_15px_rgba(239,191,101,0.15)]' : 'text-on-surface-variant'}`}>
+        <span className="material-symbols-outlined text-[42px]" data-icon="home" style={pathname === '/' ? { fontVariationSettings: "'FILL' 1" } : undefined}>home</span>
+      </Link>
+      <Link href="/settings" className={`flex flex-col items-center justify-center hover:bg-white/5 active:scale-90 transition-all w-12 h-12 rounded-full ${pathname === '/settings' ? 'text-tertiary' : 'text-on-surface-variant'}`}>
+        <span className="material-symbols-outlined text-[32px]" data-icon="settings" style={pathname === '/settings' ? { fontVariationSettings: "'FILL' 1" } : undefined}>settings</span>
+      </Link>
     </nav>
   );
 }

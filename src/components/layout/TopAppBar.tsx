@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { usePathname, useRouter } from '@/i18n/routing';
+import { usePathname, useRouter, Link } from '@/i18n/routing';
 
 const LOCALE_INFO = [
   { code: 'en', flag: '🇺🇸', label: 'English' },
@@ -31,6 +31,8 @@ export function TopAppBar() {
   }, []);
 
   const switchLanguage = (nextLocale: string) => {
+    localStorage.setItem('preferred_locale', nextLocale);
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
     router.replace(pathname, { locale: nextLocale });
     setIsOpen(false);
   };
@@ -51,15 +53,15 @@ export function TopAppBar() {
       <div className="flex items-center gap-4 md:gap-8">
         {/* Desktop Menu - Hidden on mobile, No icons */}
         <nav id="desktop-nav" className="hidden md:flex items-center space-x-8">
-          <button className="text-on-surface-variant hover:text-white transition-colors flex items-center">
+          <Link href="/categories" className={`flex items-center transition-colors ${pathname === '/categories' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
             <span className="font-semibold text-sm uppercase tracking-wider">{t('menuCategories')}</span>
-          </button>
-          <button className="text-tertiary hover:text-white transition-colors flex items-center">
+          </Link>
+          <Link href="/" className={`flex items-center transition-colors ${pathname === '/' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
             <span className="font-semibold text-sm uppercase tracking-wider">{t('menuHome')}</span>
-          </button>
-          <button className="text-on-surface-variant hover:text-white transition-colors flex items-center">
+          </Link>
+          <Link href="/settings" className={`flex items-center transition-colors ${pathname === '/settings' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
             <span className="font-semibold text-sm uppercase tracking-wider">{t('menuSettings')}</span>
-          </button>
+          </Link>
         </nav>
 
         {/* Language Switcher Dropdown */}
