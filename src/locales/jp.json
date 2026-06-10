@@ -18,6 +18,43 @@
     "quote": "「朝のそよ風があなたに秘密を教えようとしている。二度寝しないで。」",
     "menuCategories": "カテゴリー",
     "menuHome": "ホーム",
-    "menuSettings": "設定"
+    "menuSettings": "設定",
+    "loading": "言語を切り替えています..."
+  },
+  "Categories": {
+    "title": "データソース",
+    "desc": "モーニングルーティンのコンテンツを管理および整理します。",
+    "addSource": "ソースを追加",
+    "editCategory": "カテゴリーを編集",
+    "addCategory": "カテゴリーを追加",
+    "categoryName": "カテゴリー名 *",
+    "categoryPlaceholder": "例: 天気、仮想通貨、ニュース...",
+    "isFacebook": "Facebookページですか？",
+    "dataUrl": "データURL（任意）",
+    "cancel": "キャンセル",
+    "create": "作成",
+    "saveChanges": "変更を保存",
+    "deleteConfirm": "このソースを削除しますか？",
+    "delete": "削除",
+    "errorNameRequired": "名前は必須です",
+    "errorInvalidFbUrl": "有効なFacebookリンクである必要があります"
+  },
+  "Settings": {
+    "title": "設定",
+    "desc": "Morning Routineの体験をカスタマイズしましょう。",
+    "sectionSchedule": "自動化とスケジュール",
+    "cronEnabled": "自動スケジュールを有効にする",
+    "cronEnabledDesc": "毎日決まった時刻に朝のニュースを自動的に同期します。",
+    "cronTime": "同期時刻",
+    "cronTimeDesc": "この時刻にシステムがデータを収集し、音声ニュースを生成します。",
+    "sectionVoice": "音声の設定",
+    "voiceSelect": "読み上げ音声を選択",
+    "voiceSelectDesc": "デバイスとブラウザで利用可能な音声から選択してください。",
+    "voiceDefault": "システムデフォルト",
+    "voiceTest": "テスト耳僵き",
+    "voiceTestSample": "おはようございます！これはMorning Routineの選択した音声のプレビューです。",
+    "noVoicesAvailable": "このデバイスに利用可能な音声はありません。",
+    "saved": "保存しました！",
+    "saveChanges": "変更を保存"
   }
 }

@@ -18,6 +18,43 @@
     "quote": "\"Gió ban mai có những bí mật muốn nói với bạn. Đừng ngủ lại.\"",
     "menuCategories": "Danh mục",
     "menuHome": "Trang chủ",
-    "menuSettings": "Cài đặt"
+    "menuSettings": "Cài đặt",
+    "loading": "Đang chuyển ngôn ngữ..."
+  },
+  "Categories": {
+    "title": "Nguồn dữ liệu",
+    "desc": "Quản lý và sắp xếp nội dung cho bản tin buổi sáng của bạn.",
+    "addSource": "Thêm Nguồn",
+    "editCategory": "Sửa Danh Mục",
+    "addCategory": "Thêm Danh Mục",
+    "categoryName": "Tên danh mục *",
+    "categoryPlaceholder": "VD: Thời tiết, Tiền ảo, Tin tức...",
+    "isFacebook": "Là trang Facebook?",
+    "dataUrl": "URL Dữ liệu (Không bắt buộc)",
+    "cancel": "Hủy",
+    "create": "Tạo mới",
+    "saveChanges": "Lưu thay đổi",
+    "deleteConfirm": "Xóa nguồn này?",
+    "delete": "Xóa",
+    "errorNameRequired": "Tên không được để trống",
+    "errorInvalidFbUrl": "Đường dẫn Facebook không hợp lệ"
+  },
+  "Settings": {
+    "title": "Cài đặt",
+    "desc": "Tuỳ chỉnh trải nghiệm Morning Routine của bạn.",
+    "sectionSchedule": "Tự động hóa & Lập lịch",
+    "cronEnabled": "Bật lập lịch tự động",
+    "cronEnabledDesc": "Tự động đồng bộ bản tin buổi sáng vào một khung giờ cố định mỗi ngày.",
+    "cronTime": "Giờ đồng bộ",
+    "cronTimeDesc": "Hệ thống sẽ thu thập dữ liệu và tạo bản tin âm thanh vào giờ này.",
+    "sectionVoice": "Lựa chọn giọng đọc",
+    "voiceSelect": "Chọn giọng đọc",
+    "voiceSelectDesc": "Chọn giọng từ danh sách giọng đọc có sẵn trên thiết bị và trình duyệt của bạn.",
+    "voiceDefault": "Mặc định hệ thống",
+    "voiceTest": "Nghe thử",
+    "voiceTestSample": "Chào buổi sáng! Đây là đoạn nghe thử giọng đọc đã chọn cho Morning Routine.",
+    "noVoicesAvailable": "Thiết bị không có giọng đọc nào.",
+    "saved": "Đã lưu!",
+    "saveChanges": "Lưu thay đổi"
   }
 }

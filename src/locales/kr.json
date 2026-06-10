@@ -18,6 +18,43 @@
     "quote": "\"아침 산들바람이 당신에게 비밀을 말해줄 것입니다. 다시 잠들지 마세요.\"",
     "menuCategories": "카테고리",
     "menuHome": "홈",
-    "menuSettings": "설정"
+    "menuSettings": "설정",
+    "loading": "언어를 전환하는 중..."
+  },
+  "Categories": {
+    "title": "데이터 소스",
+    "desc": "모닝 루틴을 위한 콘텐츠를 관리하고 정렬합니다.",
+    "addSource": "소스 추가",
+    "editCategory": "카테고리 편집",
+    "addCategory": "카테고리 추가",
+    "categoryName": "카테고리 이름 *",
+    "categoryPlaceholder": "예: 날씨, 암호화폐, 뉴스...",
+    "isFacebook": "Facebook 페이지입니까?",
+    "dataUrl": "데이터 URL (선택 사항)",
+    "cancel": "취소",
+    "create": "만들기",
+    "saveChanges": "변경 사항 저장",
+    "deleteConfirm": "이 소스를 삭제하시겠습니까?",
+    "delete": "삭제",
+    "errorNameRequired": "이름은 필수입니다",
+    "errorInvalidFbUrl": "유효한 Facebook 링크여야 합니다"
+  },
+  "Settings": {
+    "title": "설정",
+    "desc": "Morning Routine 경험을 커스터마이즈하세요.",
+    "sectionSchedule": "자동화 대 일정 관리",
+    "cronEnabled": "자동 일정 활성화",
+    "cronEnabledDesc": "매일 정해진 시간에 아침 브리핑을 자동으로 동기화합니다.",
+    "cronTime": "동기 시간",
+    "cronTimeDesc": "시스템이 이 시간에 데이터를 수집하고 오디오 브리핑을 생성합니다.",
+    "sectionVoice": "음성 환경설정",
+    "voiceSelect": "읽기 음성 선택",
+    "voiceSelectDesc": "기기와 브라우저에서 사용 가능한 음성에서 선택하세요.",
+    "voiceDefault": "시스템 기본값",
+    "voiceTest": "음성 테스트",
+    "voiceTestSample": "좋은 아침입니다! Morning Routine에 선택된 음성의 미리보기입니다.",
+    "noVoicesAvailable": "이 기기에 사용 가능한 음성이 없습니다.",
+    "saved": "저장되었습니다!",
+    "saveChanges": "변경사항 저장"
   }
 }

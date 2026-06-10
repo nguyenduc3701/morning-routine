@@ -18,6 +18,43 @@
     "quote": "\"The morning breeze has secrets to tell you. Don't go back to sleep.\"",
     "menuCategories": "Categories",
     "menuHome": "Home",
-    "menuSettings": "Settings"
+    "menuSettings": "Settings",
+    "loading": "Switching language..."
+  },
+  "Categories": {
+    "title": "Data Sources",
+    "desc": "Manage and order the content for your morning routine.",
+    "addSource": "Add Source",
+    "editCategory": "Edit Category",
+    "addCategory": "Add Category",
+    "categoryName": "Category Name *",
+    "categoryPlaceholder": "e.g. Weather, Crypto, Beatvn...",
+    "isFacebook": "Is Facebook Page?",
+    "dataUrl": "Data URL (Optional)",
+    "cancel": "Cancel",
+    "create": "Create",
+    "saveChanges": "Save Changes",
+    "deleteConfirm": "Delete this source?",
+    "delete": "Delete",
+    "errorNameRequired": "Name is required",
+    "errorInvalidFbUrl": "URL must be a valid Facebook link"
+  },
+  "Settings": {
+    "title": "Settings",
+    "desc": "Customize your Morning Routine experience.",
+    "sectionSchedule": "Automation & Scheduling",
+    "cronEnabled": "Enable automatic schedule",
+    "cronEnabledDesc": "Automatically sync your morning brief at a fixed time every day.",
+    "cronTime": "Sync time",
+    "cronTimeDesc": "The system will collect data and generate your audio brief at this time.",
+    "sectionVoice": "Voice Preferences",
+    "voiceSelect": "Select reading voice",
+    "voiceSelectDesc": "Choose a voice from the available voices on your device and browser.",
+    "voiceDefault": "System Default",
+    "voiceTest": "Test voice",
+    "voiceTestSample": "Good morning! This is a preview of your selected voice for Morning Routine.",
+    "noVoicesAvailable": "No voices available on this device.",
+    "saved": "Saved!",
+    "saveChanges": "Save changes"
   }
 }

@@ -18,6 +18,43 @@
     "quote": "“晨风有秘密要告诉你。不要再回去睡觉了。”",
     "menuCategories": "分类",
     "menuHome": "首页",
-    "menuSettings": "设置"
+    "menuSettings": "设置",
+    "loading": "正在切换语言..."
+  },
+  "Categories": {
+    "title": "数据源",
+    "desc": "管理并排序晨间日程的内容。",
+    "addSource": "添加源",
+    "editCategory": "编辑类别",
+    "addCategory": "添加类别",
+    "categoryName": "类别名称 *",
+    "categoryPlaceholder": "例如：天气，加密货币，新闻...",
+    "isFacebook": "是Facebook页面吗？",
+    "dataUrl": "数据URL（可选）",
+    "cancel": "取消",
+    "create": "创建",
+    "saveChanges": "保存更改",
+    "deleteConfirm": "确定要删除此源吗？",
+    "delete": "删除",
+    "errorNameRequired": "名称是必填项",
+    "errorInvalidFbUrl": "必须是有效的Facebook链接"
+  },
+  "Settings": {
+    "title": "设置",
+    "desc": "自定义您的 Morning Routine 体验。",
+    "sectionSchedule": "自动化与计划",
+    "cronEnabled": "启用自动计划",
+    "cronEnabledDesc": "每天在固定时间自动同步早间简报。",
+    "cronTime": "同步时间",
+    "cronTimeDesc": "系统将在此时间收集数据并生成您的音频简报。",
+    "sectionVoice": "语音偏好",
+    "voiceSelect": "选择播读音色",
+    "voiceSelectDesc": "从您设备和浏览器上可用的音色中进行选择。",
+    "voiceDefault": "系统默认",
+    "voiceTest": "试听",
+    "voiceTestSample": "早上好！这是 Morning Routine 所选音色的预览。",
+    "noVoicesAvailable": "此设备上没有可用的音色。",
+    "saved": "已保存！",
+    "saveChanges": "保存更改"
   }
 }

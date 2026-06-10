@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useTransition } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter, Link } from '@/i18n/routing';
 
@@ -19,6 +19,7 @@ export function TopAppBar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -33,13 +34,16 @@ export function TopAppBar() {
   const switchLanguage = (nextLocale: string) => {
     localStorage.setItem('preferred_locale', nextLocale);
     document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000`;
-    router.replace(pathname, { locale: nextLocale });
     setIsOpen(false);
+    startTransition(() => {
+      router.replace(pathname, { locale: nextLocale });
+    });
   };
   
   const currentLocaleInfo = LOCALE_INFO.find(l => l.code === locale) || LOCALE_INFO[0];
 
   return (
+    <>
     <header id="top-app-bar" className="flex justify-between items-center w-full px-container-margin md:px-8 py-base backdrop-blur-xl bg-white/10 sticky top-0 z-50 md:py-sm">
       {/* Logo & Title */}
       <div className="flex items-center gap-3">
@@ -95,5 +99,23 @@ export function TopAppBar() {
         </div>
       </div>
     </header>
+
+    {/* Full Screen Loading Overlay for Language Switch */}
+    {isPending && (
+      <div className="fixed inset-0 z-[9999] bg-[#0A0F2C]/80 backdrop-blur-md flex items-center justify-center transition-all duration-300">
+        <div className="flex flex-col items-center gap-6 p-8 rounded-3xl bg-white/5 border border-white/10 shadow-2xl backdrop-blur-xl">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-white/10 border-t-tertiary rounded-full animate-spin"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-xl">{currentLocaleInfo.flag}</span>
+            </div>
+          </div>
+          <p className="text-on-surface font-headline-sm font-medium animate-pulse tracking-wide">
+            {t('loading', { defaultValue: 'Switching language...' })}
+          </p>
+        </div>
+      </div>
+    )}
+    </>
   );
 }

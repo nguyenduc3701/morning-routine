@@ -1,10 +1,32 @@
+'use client';
+
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { AudioPlayer } from '@/components/dashboard/AudioPlayer';
+import { useCategoryStore } from '@/store/categoryStore';
+import {
+  RefreshCw, AudioLines, ChevronLeft, ChevronRight,
+  RotateCcw, Square, RotateCw, PlayCircle,
+  CloudSun, TrendingUp, CalendarDays, Globe, FileText
+} from 'lucide-react';
+
+const categoryIconMap: Record<string, React.ElementType> = {
+  cat_1: CloudSun,
+  cat_2: TrendingUp,
+  cat_3: CalendarDays,
+};
+function getCategoryIcon(catId: string, isFacebook: boolean): React.ElementType {
+  return categoryIconMap[catId] ?? (isFacebook ? Globe : FileText);
+}
 
 export default function DashboardPage() {
   const t = useTranslations('Dashboard');
+  const { categories } = useCategoryStore();
+  
+  const activeCategories = categories
+    .filter(cat => cat.isActive)
+    .sort((a, b) => a.order - b.order);
 
   return (
     <>
@@ -23,7 +45,7 @@ export default function DashboardPage() {
               {t('prepareData')}
             </span>
             <div className="flex items-center gap-xs">
-              <span className="material-symbols-outlined text-tertiary text-sm animate-spin-slow">sync</span>
+              <RefreshCw size={14} strokeWidth={2} className="text-tertiary animate-spin-slow" />
               <span className="font-label-sm text-label-sm text-tertiary">40% {t('complete')}</span>
             </div>
           </div>
@@ -50,41 +72,41 @@ export default function DashboardPage() {
             </div>
 
             {/* Playlist / Categories Queue */}
-            <div id="audio-playlist" className="flex-1 overflow-y-auto space-y-1">
-              <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-white/10 border border-tertiary/20 shadow-[0_0_15px_rgba(140,212,230,0.1)]">
-                <span className="font-semibold text-sm text-tertiary tracking-wide">{t('hydrate')}</span>
-                <span className="material-symbols-outlined text-tertiary text-[16px] animate-pulse">equalizer</span>
-              </div>
-              <div className="flex items-center px-3 py-1.5 rounded-lg hover:bg-white/5 transition-colors text-on-surface-variant cursor-pointer">
-                <span className="font-medium text-sm tracking-wide">{t('mindful')}</span>
-              </div>
-              <div className="flex items-center px-3 py-1.5 rounded-lg hover:bg-white/5 transition-colors text-on-surface-variant cursor-pointer">
-                <span className="font-medium text-sm tracking-wide">{t('sunlight')}</span>
-              </div>
+            <div id="audio-playlist" className="flex-1 overflow-y-auto space-y-1 pr-2">
+              {activeCategories.length > 0 ? activeCategories.map((cat, index) => (
+                <div key={cat.id} className={`flex items-center justify-between px-3 py-2 rounded-lg transition-colors cursor-pointer ${index === 0 ? 'bg-white/10 border border-tertiary/20 shadow-[0_0_15px_rgba(140,212,230,0.1)]' : 'hover:bg-white/5 text-on-surface-variant group'}`}>
+                  <span className={`font-semibold text-sm tracking-wide truncate pr-2 ${index === 0 ? 'text-tertiary' : 'group-hover:text-white'}`}>
+                    {cat.name}
+                  </span>
+                  {index === 0 && <AudioLines size={16} strokeWidth={2} className="text-tertiary animate-pulse shrink-0" />}
+                </div>
+              )) : (
+                <div className="text-sm text-on-surface-variant p-2 italic">No active data sources. Please configure in Categories.</div>
+              )}
             </div>
             
             {/* Navigation & Audio Controls */}
             <div className="flex items-center justify-between pt-sm border-t border-white/10">
               <button id="btn-audio-back" className="flex items-center gap-1 p-2 rounded-full hover:bg-white/10 transition-all text-on-surface-variant group">
-                <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform">chevron_left</span>
+                <ChevronLeft size={22} strokeWidth={1.5} className="group-hover:-translate-x-1 transition-transform" />
                 <span className="font-label-sm uppercase tracking-widest hidden lg:inline">{t('back')}</span>
               </button>
               
               <div className="flex items-center gap-sm">
                 <button id="btn-audio-replay" className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-white/10 hover:text-white transition-colors">
-                  <span className="material-symbols-outlined">replay_10</span>
+                  <RotateCcw size={20} strokeWidth={1.5} />
                 </button>
                 <button id="btn-audio-stop" className="w-12 h-12 flex items-center justify-center rounded-full text-white bg-white/5 border border-white/10 hover:bg-white/20 transition-colors">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>stop</span>
+                  <Square size={20} strokeWidth={0} fill="currentColor" />
                 </button>
                 <button id="btn-audio-forward" className="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-white/10 hover:text-white transition-colors">
-                  <span className="material-symbols-outlined">forward_10</span>
+                  <RotateCw size={20} strokeWidth={1.5} />
                 </button>
               </div>
               
               <button id="btn-audio-next" className="flex items-center gap-1 p-2 rounded-full hover:bg-white/10 transition-all text-tertiary group">
                 <span className="font-label-sm uppercase tracking-widest hidden lg:inline">{t('next')}</span>
-                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+                <ChevronRight size={22} strokeWidth={1.5} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </GlassCard>
@@ -93,42 +115,28 @@ export default function DashboardPage() {
         {/* Categories Section */}
         <section id="categories-section" className="flex-1 space-y-sm min-w-0">
           <h3 className="font-headline-md text-on-surface opacity-90 px-xs text-[18px] md:text-[20px] font-semibold">{t('categories')}</h3>
-          <div className="grid grid-cols-2 gap-sm">
-            {/* Hydration - Large Vertical */}
-            <GlassCard id="card-hydrate" className="rounded-xl p-sm md:p-md col-span-1 row-span-2 flex flex-col justify-between hover:bg-white/15 transition-colors cursor-pointer group">
-              <div>
-                <div className="flex justify-between items-start">
-                  <span className="material-symbols-outlined text-primary mb-sm text-3xl">water_drop</span>
-                  <span className="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">play_circle</span>
-                </div>
-                <h3 className="font-headline-md text-[20px] md:text-[22px] leading-tight font-semibold mt-2">{t('hydrate')}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+            {activeCategories.length > 0 ? activeCategories.map((cat, idx) => {
+              const colors = ['#8CD4E6', '#FECD71', '#DA8593', '#7B5C9C'];
+              const color = colors[idx % colors.length];
+              
+              return (
+                <GlassCard key={cat.id} className="rounded-xl p-sm md:p-md flex flex-col justify-between hover:bg-white/15 transition-colors cursor-pointer group min-h-[140px]">
+                  <div className="flex items-start justify-between">
+                  {(() => { const Icon = getCategoryIcon(cat.id, cat.isFacebook); return <Icon size={32} strokeWidth={1.5} style={{ color }} />; })()}
+                    <PlayCircle size={20} strokeWidth={1.5} className="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <div>
+                    <h3 className="font-headline-md text-[16px] md:text-[18px] font-semibold mt-base leading-tight">{cat.name}</h3>
+                    {cat.url && <p className="text-xs text-on-surface-variant truncate mt-1">{cat.url}</p>}
+                  </div>
+                </GlassCard>
+              );
+            }) : (
+              <div className="col-span-1 sm:col-span-2 text-center p-8 border border-dashed border-white/20 rounded-xl text-on-surface-variant">
+                No active categories.
               </div>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2">{t('hydrateDesc')}</p>
-              <button id="btn-hydrate-done" className="mt-md w-12 h-12 rounded-full border-[1.5px] border-tertiary flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-surface transition-all">
-                <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
-              </button>
-            </GlassCard>
-
-            {/* Meditation - Wide */}
-            <GlassCard id="card-meditation" className="rounded-xl p-sm md:p-md col-span-1 flex flex-col justify-between hover:bg-white/15 transition-colors cursor-pointer group">
-              <div className="flex items-start justify-between">
-                <span className="material-symbols-outlined text-secondary text-2xl">self_improvement</span>
-                <div className="flex items-center gap-xs">
-                  <span className="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity text-xl">play_circle</span>
-                  <span className="font-label-sm text-label-sm text-on-surface-variant font-mono">{t('mindfulDesc')}</span>
-                </div>
-              </div>
-              <h3 className="font-headline-md text-[16px] md:text-[18px] font-semibold mt-base">{t('mindful')}</h3>
-            </GlassCard>
-
-            {/* Light Exposure */}
-            <GlassCard id="card-sunlight" className="rounded-xl p-sm md:p-md col-span-1 flex flex-col justify-between hover:bg-white/15 transition-colors cursor-pointer group">
-              <div className="flex items-start justify-between">
-                <span className="material-symbols-outlined text-tertiary text-2xl">wb_sunny</span>
-                <span className="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity text-xl">play_circle</span>
-              </div>
-              <h3 className="font-headline-md text-[16px] md:text-[18px] font-semibold mt-base">{t('sunlight')}</h3>
-            </GlassCard>
+            )}
           </div>
         </section>
 
