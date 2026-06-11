@@ -4,6 +4,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import {TopAppBar} from '@/components/layout/TopAppBar';
 import {BottomNavBar} from '@/components/layout/BottomNavBar';
+import {AppInitializer} from '@/components/layout/AppInitializer';
 import '../globals.css'; // Make sure to use the global CSS
 
 export const metadata = {
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
       </head>
       <body className="bg-background text-on-surface pb-24">
         <NextIntlClientProvider messages={messages}>
+          <AppInitializer />
           <div className="relative z-10 w-full min-h-screen flex flex-col pb-xl md:pb-0">
             <TopAppBar />
             <main className="flex-1 w-full max-w-5xl mx-auto px-container-margin md:px-8 mt-sm space-y-md">

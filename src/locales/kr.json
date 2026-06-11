@@ -2,8 +2,13 @@
   "Dashboard": {
     "title": "Morning Routine",
     "greeting": "하루는 고요함 속에서 시작됩니다.",
-    "prepareData": "데이터 로드 준비",
+    "prepareData": "데이터 준비 중",
     "complete": "완료",
+    "syncIdle": "데이터를 수집할 준비가 되었습니다",
+    "startSync": "수집 시작",
+    "syncing": "데이터 수집 중...",
+    "syncCompleted": "데이터 수집 완료",
+    "reSync": "다시 수집",
     "categories": "카테고리",
     "hydrate": "수분 보충",
     "hydrateDesc": "레몬 워터 500ml",
@@ -56,5 +61,27 @@
     "noVoicesAvailable": "이 기기에 사용 가능한 음성이 없습니다.",
     "saved": "저장되었습니다!",
     "saveChanges": "변경사항 저장"
+  },
+  "Onboarding": {
+    "stepOf": "{step} / {total} 단계",
+    "welcomeTitle": "안녕하세요.",
+    "welcomeSubtitle": "매일 큐레이팅되는 나만의 아침 브리핑.",
+    "welcomeDesc": "Morning Routine은 일정, 날씨, 뉴스를 수집하여 큰 소리로 읽어주어— 헸드폰을 만지지 않고도 충실한 하루를 시작하도록 돕습니다.",
+    "welcomeCta": "시작하기",
+    "voiceTitle": "음성 선택",
+    "voiceDesc": "매일 아침 브리핑을 읽어줌 AI 음성을 선택하세요.",
+    "voiceDefault": "시스템 기본값",
+    "voiceTest": "시청하기",
+    "voiceTestSample": "안녕하세요! 오늘 날씨는 맑고 첨하합니다. 첫 번째 회의는 오전 9시에 시작됩니다.",
+    "noVoicesAvailable": "이 기기에서 사용 가능한 음성을 찾을 수 없습니다.",
+    "voiceCta": "계속하기",
+    "voiceSkip": "건너뛰기",
+    "categoryTitle": "데이터 소스 선택",
+    "categoryDesc": "아침 브리핑에 포함할 정보를 선택하세요. 나중에 변경할 수 있습니다.",
+    "categoryCta": "설정 완료",
+    "finishTitle": "준비 완료!",
+    "finishDesc": "Morning Routine이 준비되었습니다. 내일 아침에 또 농요.",
+    "finishCta": "대시보드로",
+    "back": "뒤로"
   }
 }

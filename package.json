@@ -9,8 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@tanstack/react-query": "^5.101.0",
     "lucide-react": "^1.17.0",
+    "mobile-drag-drop": "3.0.0-rc.0",
     "next": "16.2.7",
     "next-intl": "^4.13.0",
     "react": "19.2.4",

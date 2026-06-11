@@ -2,8 +2,13 @@
   "Dashboard": {
     "title": "Morning Routine",
     "greeting": "一日は静けさの中で始まる。",
-    "prepareData": "データロードの準備",
+    "prepareData": "データ準備中",
     "complete": "完了",
+    "syncIdle": "データ収集の準備ができました",
+    "startSync": "収集開始",
+    "syncing": "データを収集しています...",
+    "syncCompleted": "データ収集が完了しました",
+    "reSync": "再収集",
     "categories": "カテゴリー",
     "hydrate": "水分補給",
     "hydrateDesc": "500mlのレモン水",
@@ -56,5 +61,27 @@
     "noVoicesAvailable": "このデバイスに利用可能な音声はありません。",
     "saved": "保存しました！",
     "saveChanges": "変更を保存"
+  },
+  "Onboarding": {
+    "stepOf": "ステップ {step} / {total}",
+    "welcomeTitle": "おはようございます。",
+    "welcomeSubtitle": "毎日キュレートされる、身近な朝のブリーフィング。",
+    "welcomeDesc": "Morning Routineはあなたのスケジュール、天気、ニュースを集め—スマホを触ることなく、充実した一日の始まりを提供します。",
+    "welcomeCta": "始めましょう",
+    "voiceTitle": "音声を選んでください",
+    "voiceDesc": "毎朝のブリーフィングを読むAI音声を選んでください。",
+    "voiceDefault": "システムデフォルト",
+    "voiceTest": "試聴き",
+    "voiceTestSample": "おはようございます！今日の天気は晴れです。最初のミーティングは午前9時から始まります。",
+    "noVoicesAvailable": "このデバイスに利用可能な音声はありません。",
+    "voiceCta": "次へ",
+    "voiceSkip": "スキップ",
+    "categoryTitle": "データソースを選択",
+    "categoryDesc": "朝のブリーフィングに含めたい情報を選択してください。後で変更できます。",
+    "categoryCta": "設定を完了",
+    "finishTitle": "準備完了！",
+    "finishDesc": "Morning Routineの準備ができました。明日の朝にまたお会いしましょう。",
+    "finishCta": "ダッシュボードへ",
+    "back": "戻る"
   }
 }

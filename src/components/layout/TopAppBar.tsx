@@ -46,22 +46,22 @@ export function TopAppBar() {
     <>
     <header id="top-app-bar" className="flex justify-between items-center w-full px-container-margin md:px-8 py-base backdrop-blur-xl bg-white/10 sticky top-0 z-50 md:py-sm">
       {/* Logo & Title */}
-      <div className="flex items-center gap-3">
+      <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
         <img src="/logo.png" alt="Morning Routine Logo" className="w-9 h-9 rounded-full object-cover border border-white/20 shadow-sm" />
         <h1 className="font-headline-md text-[28px] leading-[36px] font-semibold text-on-surface tracking-tight">
           {t('title')}
         </h1>
-      </div>
+      </Link>
 
       {/* Right Section: Menu & Language Switcher */}
       <div className="flex items-center gap-4 md:gap-8">
         {/* Desktop Menu - Hidden on mobile, No icons */}
         <nav id="desktop-nav" className="hidden md:flex items-center space-x-8">
-          <Link href="/categories" className={`flex items-center transition-colors ${pathname === '/categories' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
-            <span className="font-semibold text-sm uppercase tracking-wider">{t('menuCategories')}</span>
-          </Link>
           <Link href="/" className={`flex items-center transition-colors ${pathname === '/' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
             <span className="font-semibold text-sm uppercase tracking-wider">{t('menuHome')}</span>
+          </Link>
+          <Link href="/categories" className={`flex items-center transition-colors ${pathname === '/categories' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
+            <span className="font-semibold text-sm uppercase tracking-wider">{t('menuCategories')}</span>
           </Link>
           <Link href="/settings" className={`flex items-center transition-colors ${pathname === '/settings' ? 'text-tertiary' : 'text-on-surface-variant hover:text-white'}`}>
             <span className="font-semibold text-sm uppercase tracking-wider">{t('menuSettings')}</span>

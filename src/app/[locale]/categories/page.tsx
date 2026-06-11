@@ -6,6 +6,20 @@ import { Plus, Search } from 'lucide-react';
 import { useCategoryStore, Category } from '@/store/categoryStore';
 import { CategoryListItem } from '@/components/categories/CategoryListItem';
 import { CategoryModal } from '@/components/categories/CategoryModal';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent
+} from '@dnd-kit/core';
+import {
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
 export default function CategoriesPage() {
   const t = useTranslations('Categories');
@@ -15,9 +29,16 @@ export default function CategoriesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
 
-  // Drag and drop state
-  const [draggedId, setDraggedId] = useState<string | null>(null);
-  const [dragOverId, setDragOverId] = useState<string | null>(null);
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5, // Require 5px movement before drag starts to allow tapping
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   const handleEdit = (category: Category) => {
     setEditingCategory(category);
@@ -35,32 +56,11 @@ export default function CategoriesPage() {
     cat.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleDragStart = (e: React.DragEvent, id: string) => {
-    setDraggedId(id);
-    e.dataTransfer.effectAllowed = 'move';
-    // Firefox requires data
-    e.dataTransfer.setData('text/plain', id);
-  };
-
-  const handleDragOver = (e: React.DragEvent, id: string) => {
-    e.preventDefault();
-    if (id !== dragOverId) {
-      setDragOverId(id);
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      reorderCategories(active.id as string, over.id as string);
     }
-  };
-
-  const handleDrop = (e: React.DragEvent, id: string) => {
-    e.preventDefault();
-    if (draggedId && draggedId !== id) {
-      reorderCategories(draggedId, id);
-    }
-    setDraggedId(null);
-    setDragOverId(null);
-  };
-
-  const handleDragEnd = () => {
-    setDraggedId(null);
-    setDragOverId(null);
   };
 
   return (
@@ -96,27 +96,32 @@ export default function CategoriesPage() {
       </div>
 
       <div className="bg-black/10 rounded-3xl p-2 md:p-4 border border-white/5">
-        <div className="space-y-3" onDragOver={(e) => e.preventDefault()}>
-          {filteredCategories.length > 0 ? (
-            filteredCategories.map((category) => (
-              <CategoryListItem 
-                key={category.id} 
-                category={category} 
-                onEdit={handleEdit}
-                isDragged={draggedId === category.id}
-                isDragOver={dragOverId === category.id}
-                onDragStart={(e) => handleDragStart(e, category.id)}
-                onDragOver={(e) => handleDragOver(e, category.id)}
-                onDrop={(e) => handleDrop(e, category.id)}
-                onDragEnd={handleDragEnd}
-              />
-            ))
-          ) : (
-            <div className="text-center py-12 text-on-surface-variant">
-              No data available.
-            </div>
-          )}
-        </div>
+        <DndContext 
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
+          <div className="space-y-3">
+            <SortableContext 
+              items={filteredCategories.map(c => c.id)}
+              strategy={verticalListSortingStrategy}
+            >
+              {filteredCategories.length > 0 ? (
+                filteredCategories.map((category) => (
+                  <CategoryListItem 
+                    key={category.id} 
+                    category={category} 
+                    onEdit={handleEdit}
+                  />
+                ))
+              ) : (
+                <div className="text-center py-12 text-on-surface-variant">
+                  No data available.
+                </div>
+              )}
+            </SortableContext>
+          </div>
+        </DndContext>
       </div>
 
       <CategoryModal 

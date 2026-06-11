@@ -4,9 +4,10 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { AudioPlayer } from '@/components/dashboard/AudioPlayer';
+import { SyncDataSection } from '@/components/dashboard/SyncDataSection';
 import { useCategoryStore } from '@/store/categoryStore';
 import {
-  RefreshCw, AudioLines, ChevronLeft, ChevronRight,
+  AudioLines, ChevronLeft, ChevronRight,
   RotateCcw, Square, RotateCw, PlayCircle,
   CloudSun, TrendingUp, CalendarDays, Globe, FileText
 } from 'lucide-react';
@@ -38,22 +39,7 @@ export default function DashboardPage() {
       </section>
 
       {/* Prepare Data Section - Full width */}
-      <section id="prepare-data-section" className="w-full">
-        <GlassCard className="rounded-xl p-sm md:p-md space-y-sm w-full" glow>
-          <div className="flex justify-between items-center">
-            <span className="font-body-md text-body-md text-on-surface-variant">
-              {t('prepareData')}
-            </span>
-            <div className="flex items-center gap-xs">
-              <RefreshCw size={14} strokeWidth={2} className="text-tertiary animate-spin-slow" />
-              <span className="font-label-sm text-label-sm text-tertiary">40% {t('complete')}</span>
-            </div>
-          </div>
-          <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
-            <div className="progress-gradient h-full rounded-full w-[40%] transition-all duration-1000 ease-in-out"></div>
-          </div>
-        </GlassCard>
-      </section>
+      <SyncDataSection />
 
       {/* Desktop Flex Container for Audio Focus & Categories */}
       <div className="flex flex-col md:flex-row md:gap-8 space-y-sm md:space-y-0 w-full">

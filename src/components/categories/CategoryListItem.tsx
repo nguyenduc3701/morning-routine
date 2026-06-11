@@ -4,61 +4,70 @@ import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Category, useCategoryStore } from '@/store/categoryStore';
 import { GripVertical, PenLine, Trash2 } from 'lucide-react';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 
 interface CategoryListItemProps {
   category: Category;
   onEdit: (cat: Category) => void;
-  isDragged: boolean;
-  isDragOver: boolean;
-  onDragStart: (e: React.DragEvent) => void;
-  onDragOver: (e: React.DragEvent) => void;
-  onDrop: (e: React.DragEvent) => void;
-  onDragEnd: (e: React.DragEvent) => void;
 }
 
 export function CategoryListItem({ 
   category, 
-  onEdit, 
-  isDragged,
-  isDragOver,
-  onDragStart,
-  onDragOver,
-  onDrop,
-  onDragEnd
+  onEdit
 }: CategoryListItemProps) {
   const t = useTranslations('Categories');
   const { toggleCategoryStatus, deleteCategory } = useCategoryStore();
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: category.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    ...(isDragging ? { zIndex: 50, position: 'relative' as const } : {}),
+  };
+
   return (
     <div
-      draggable
-      onDragStart={onDragStart}
-      onDragOver={onDragOver}
-      onDrop={onDrop}
-      onDragEnd={onDragEnd}
-      className={`relative group flex items-center p-4 bg-primary/20 backdrop-blur-md border rounded-2xl transition-all ${
-        isDragged ? 'opacity-40 border-tertiary scale-95' : 
-        isDragOver ? 'border-tertiary shadow-[0_0_15px_rgba(239,191,101,0.3)] -translate-y-1' : 
+      ref={setNodeRef}
+      style={style}
+      className={`group flex items-center p-4 bg-primary/20 backdrop-blur-md border rounded-2xl transition-colors ${
+        isDragging ? 'opacity-50 border-tertiary scale-105 shadow-[0_0_20px_rgba(239,191,101,0.4)]' : 
         'border-secondary/30 hover:border-secondary/60'
       }`}
     >
       {/* Drag Handle */}
       <div 
-        className="text-on-surface-variant hover:text-white mr-3 cursor-grab active:cursor-grabbing p-1"
+        {...attributes}
+        {...listeners}
+        className="text-on-surface-variant hover:text-white mr-3 cursor-grab active:cursor-grabbing p-1 touch-none"
       >
         <GripVertical size={20} strokeWidth={1.5} />
       </div>
 
       {/* Content */}
       <div className="flex-1 min-w-0 pr-4">
-        <h3 className="font-semibold text-on-surface truncate flex items-center gap-2">
+        <h3 
+          className="font-semibold text-on-surface truncate flex items-center gap-2"
+          title={category.name}
+        >
           {category.name}
           {category.isFacebook && (
             <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full font-medium">FB</span>
           )}
         </h3>
-        <p className="text-sm text-on-surface-variant truncate mt-0.5">
+        <p 
+          className="text-sm text-on-surface-variant truncate mt-0.5"
+          title={category.url || 'No URL'}
+        >
           {category.url || 'No URL'}
         </p>
       </div>

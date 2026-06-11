@@ -4,6 +4,11 @@
     "greeting": "The day begins in silence.",
     "prepareData": "Prepare Data Loading",
     "complete": "Complete",
+    "syncIdle": "Ready to collect data",
+    "startSync": "Start Collection",
+    "syncing": "Collecting data...",
+    "syncCompleted": "Data collection completed",
+    "reSync": "Collect Again",
     "categories": "Categories",
     "hydrate": "Hydrate & Prime",
     "hydrateDesc": "500ml water with lemon",
@@ -56,5 +61,32 @@
     "noVoicesAvailable": "No voices available on this device.",
     "saved": "Saved!",
     "saveChanges": "Save changes"
+  },
+  "Onboarding": {
+    "stepOf": "Step {step} of {total}",
+    "welcomeTitle": "Good morning.",
+    "welcomeSubtitle": "Your personal morning briefing, curated every day.",
+    "welcomeDesc": "Morning Routine collects your schedule, weather, and news — then reads it all aloud so you can start the day informed, without touching your phone.",
+    "welcomeCta": "Let's get started",
+    "voiceTitle": "Choose your voice",
+    "voiceDesc": "Select the AI voice that will read your morning briefing each day.",
+    "voiceDefault": "System Default",
+    "voiceTest": "Preview",
+    "voiceTestSample": "Good morning! The weather today is clear and sunny. Your first meeting starts at 9 AM.",
+    "noVoicesAvailable": "No voices found on this device.",
+    "voiceCta": "Continue",
+    "voiceSkip": "Skip for now",
+    "categoryTitle": "Choose your data sources",
+    "categoryDesc": "Select what information you want in your morning brief. You can always change this later.",
+    "categoryCta": "Finish Setup",
+    "finishTitle": "You're all set!",
+    "finishDesc": "Your morning routine is ready. See you tomorrow morning.",
+    "finishCta": "Go to Dashboard",
+    "back": "Back"
+  },
+  "Login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to sync your morning routine.",
+    "continueWithGoogle": "Continue with Google"
   }
 }

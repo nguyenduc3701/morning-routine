@@ -15,17 +15,22 @@ interface SettingsState {
 
   // Cấu hình giọng đọc
   selectedVoice: SavedVoice | null;
+
+  // Onboarding
+  hasCompletedOnboarding: boolean;
 }
 
 interface SettingsActions {
   updateSettings: (settings: Partial<SettingsState>) => void;
   setSelectedVoice: (voice: SavedVoice | null) => void;
+  completeOnboarding: () => void;
 }
 
 const defaultState: SettingsState = {
   cronEnabled: false,
   cronTime: '06:00',
   selectedVoice: null,
+  hasCompletedOnboarding: false,
 };
 
 export const useSettingsStore = create<SettingsState & SettingsActions>()(
@@ -38,9 +43,29 @@ export const useSettingsStore = create<SettingsState & SettingsActions>()(
 
       setSelectedVoice: (voice) =>
         set(() => ({ selectedVoice: voice })),
+
+      completeOnboarding: () =>
+        set(() => ({ hasCompletedOnboarding: true })),
     }),
     {
       name: 'morning-routine-settings', // key trong localStorage
     }
   )
 );
+
+import { useState, useEffect } from 'react';
+
+export const useSettingsStoreHydration = () => {
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    const unsubFinishHydration = useSettingsStore.persist.onFinishHydration(() => setHydrated(true));
+    setHydrated(useSettingsStore.persist.hasHydrated());
+
+    return () => {
+      unsubFinishHydration();
+    };
+  }, []);
+
+  return hydrated;
+};

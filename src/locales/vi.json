@@ -4,6 +4,11 @@
     "greeting": "Ngày mới bắt đầu trong tĩnh lặng.",
     "prepareData": "Chuẩn bị tải dữ liệu",
     "complete": "Hoàn tất",
+    "syncIdle": "Sẵn sàng thu thập dữ liệu",
+    "startSync": "Bắt đầu thu thập",
+    "syncing": "Đang thu thập dữ liệu...",
+    "syncCompleted": "Đã tổng hợp dữ liệu thành công",
+    "reSync": "Thu thập lại",
     "categories": "Danh mục",
     "hydrate": "Cấp nước & Thanh lọc",
     "hydrateDesc": "500ml nước chanh",
@@ -56,5 +61,32 @@
     "noVoicesAvailable": "Thiết bị không có giọng đọc nào.",
     "saved": "Đã lưu!",
     "saveChanges": "Lưu thay đổi"
+  },
+  "Onboarding": {
+    "stepOf": "Bước {step} / {total}",
+    "welcomeTitle": "Chào buổi sáng.",
+    "welcomeSubtitle": "Bản tin buổi sáng cá nhân, được tạo ra mỗi ngày.",
+    "welcomeDesc": "Morning Routine tổng hợp lịch trình, thời tiết và tin tức của bạn — rồi đọc to tất cả để bạn bắt đầu ngày mới đầy đủ thông tin mà không cần chạm vào điện thoại.",
+    "welcomeCta": "Bắt đầu nào",
+    "voiceTitle": "Chọn giọng đọc",
+    "voiceDesc": "Chọn giọng AI sẽ đọc bản tin buổi sáng của bạn mỗi ngày.",
+    "voiceDefault": "Mặc định hệ thống",
+    "voiceTest": "Nghe thử",
+    "voiceTestSample": "Chào buổi sáng! Thời tiết hôm nay trời quang mây tạnh. Cuộc họn đầu tiên của bạn bắt đầu lúc 9 giờ sáng.",
+    "noVoicesAvailable": "Không tìm thấy giọng đọc nào trên thiết bị này.",
+    "voiceCta": "Tiếp tục",
+    "voiceSkip": "Bỏ qua",
+    "categoryTitle": "Chọn nguồn dữ liệu",
+    "categoryDesc": "Chọn thông tin bạn muốn có trong bản tin buổi sáng. Bạn có thể thay đổi sau.",
+    "categoryCta": "Hoàn tất cài đặt",
+    "finishTitle": "Xong rồi!",
+    "finishDesc": "Morning Routine của bạn đã sẵn sàng. Hẹn gặp bạn vào sáng mai.",
+    "finishCta": "Vào trang chủ",
+    "back": "Quay lại"
+  },
+  "Login": {
+    "title": "Chào mừng trở lại",
+    "subtitle": "Đăng nhập để đồng bộ thói quen buổi sáng của bạn.",
+    "continueWithGoogle": "Tiếp tục với Google"
   }
 }
