@@ -20,11 +20,12 @@ interface CategoryState {
 }
 
 const initialCategories: Category[] = [
-  { id: 'cat_1', name: 'Thời tiết', url: '', isFacebook: false, isActive: true, order: 0 },
-  { id: 'cat_2', name: 'Thị trường Tài chính', url: '', isFacebook: false, isActive: true, order: 1 },
-  { id: 'cat_3', name: 'Lịch trình (Google Calendar)', url: '', isFacebook: false, isActive: true, order: 2 },
-  { id: 'cat_4', name: 'Beatvn (Facebook Page)', url: 'https://facebook.com/beatvn', isFacebook: true, isActive: false, order: 3 },
-  { id: 'cat_5', name: 'J2TEAM Community', url: 'https://facebook.com/j2team', isFacebook: true, isActive: false, order: 4 },
+  { id: 'cat_1', name: 'Thời tiết', url: 'https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Asia/Bangkok', isFacebook: false, isActive: true, order: 0 },
+  { id: 'cat_gold', name: 'Giá Vàng', url: '', isFacebook: false, isActive: true, order: 1 },
+  { id: 'cat_vn30', name: 'Thị trường VN30', url: '', isFacebook: false, isActive: true, order: 2 },
+  { id: 'cat_3', name: 'Lịch trình (Google Calendar)', url: '', isFacebook: false, isActive: true, order: 3 },
+  { id: 'cat_4', name: 'Beatvn (Facebook Page)', url: 'https://facebook.com/beatvn', isFacebook: true, isActive: false, order: 4 },
+  { id: 'cat_5', name: 'J2TEAM Community', url: 'https://facebook.com/j2team', isFacebook: true, isActive: false, order: 5 },
 ];
 
 export const useCategoryStore = create<CategoryState>()(

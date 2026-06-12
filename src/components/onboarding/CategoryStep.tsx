@@ -82,7 +82,13 @@ export function CategoryStep({ onNext }: CategoryStepProps) {
                 }}>
                   {cat.name}
                 </p>
-                <p style={{ fontSize: 11, color: 'var(--color-on-surface-variant)', opacity: 0.7, margin: 0, marginTop: 2 }}>
+                <p 
+                  title={cat.url || ''}
+                  style={{ 
+                    fontSize: 11, color: 'var(--color-on-surface-variant)', opacity: 0.7, margin: 0, marginTop: 2,
+                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'
+                  }}
+                >
                   {cat.url ? cat.url : cat.isFacebook ? 'Facebook Page' : 'Built-in source'}
                 </p>
               </div>
